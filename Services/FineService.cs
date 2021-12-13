@@ -1,4 +1,5 @@
 ﻿using FineAPI.Entities;
+using FineAPI.Repositories.Abstract;
 using FineAPI.Services.Abstract;
 using System;
 using System.Collections.Generic;
@@ -10,19 +11,19 @@ namespace FineAPI.Services
     public class FineService : IFineService
     {
         private readonly IFineRepository _fineRepository;
-        public async Task<Fine> Create(Fine fine)
+        public async Task<Fine> CreateFine(Fine fine)
         {
-            return await _fineRepository.GetAsync(fine);
+            return await _fineRepository.Create(fine);
         }
 
-        public async Task DeleteFine(int id)
+        public Task DeleteFine(int id)
         {
-            return await _fineRepository.GetAsync(id);
+            throw new NotImplementedException();
         }
 
-        public async Task<List<Fine>> GetAll()
+        public async Task<IEnumerable<Fine>> GetFines()
         {
-            await _fineRepository.GetAsync();
+            return await _fineRepository.GetAll();
         }
 
         public async Task<Fine> GetFineById(int id)
@@ -30,9 +31,9 @@ namespace FineAPI.Services
             return await _fineRepository.GetAsync(id);
         }
 
-        public async Task UpdateFine(Fine fine)
+        public async Task<Fine> UpdateFine(Fine fine)
         {
-            await _fineRepository.GetAsync(fine);
+            return await _fineRepository.UpdateAsync(fine);
         }
     }
 }

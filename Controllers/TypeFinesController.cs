@@ -1,6 +1,5 @@
-﻿using AvtoAPI.Entities;
-using AvtoAPI.Repositories;
-using AvtoAPI.Services.Abstracts;
+﻿
+using FineAPI.Entities;
 using FineAPI.Services.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,7 +11,7 @@ namespace FineAPI.Controllers
 {
     public class TypeFineController : ControllerBase
     {
-        private readonly IFineService _typeFineService;
+        private readonly ITypeFineService _typeFineService;
 
         public TypeFineController(ITypeFineService typeFineService)
         {
@@ -21,9 +20,38 @@ namespace FineAPI.Controllers
 
 
         [HttpGet]
+        [Route(nameof(GetTypeFine))]
         public async Task<IActionResult> GetTypeFine([FromQuery] int id)
         {
-            return Ok(await _typeFineService.GetFineById(id));
+            return Ok(await _typeFineService.GetTypeFineById(id));
+        }
+
+        [HttpGet]
+        [Route(nameof(GetTypeFines))]
+        public async Task<IActionResult> GetTypeFines()
+        {
+            return Ok(await _typeFineService.GetTypeFines());
+        }
+
+        [HttpPost]
+        [Route(nameof(CreateTypeFine))]
+        public async Task<IActionResult> CreateTypeFine([FromQuery] TypeFine fine)
+        {
+            return Ok(await _typeFineService.CreateTypeFine(fine));
+        }
+
+        [HttpDelete]
+        [Route(nameof(DeleteTypeFine))]
+        public async Task DeleteTypeFine([FromQuery] int id)
+        {
+            await _typeFineService.DeleteTypeFine(id);
+        }
+
+        [HttpPut]
+        [Route(nameof(UpdateTypeFine))]
+        public async Task UpdateTypeFine([FromQuery] TypeFine fine)
+        {
+            Ok(await _typeFineService.UpdateTypeFine(fine));
         }
     }
 }

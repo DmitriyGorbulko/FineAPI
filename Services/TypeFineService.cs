@@ -1,4 +1,5 @@
 ﻿using FineAPI.Entities;
+using FineAPI.Repositories.Abstract;
 using FineAPI.Services.Abstract;
 using System;
 using System.Collections.Generic;
@@ -9,30 +10,30 @@ namespace FineAPI.Services
 {
     public class TypeFineService : ITypeFineService
     {
-        private readonly ITypeFineRepository _typeFineRepository;
-        public Task<TypeFine> Create(TypeFine typeFine)
+        private readonly ITypeFineRepository _typeTypeFineRepository;
+        public async Task<TypeFine> CreateTypeFine(TypeFine typeFine)
         {
-            return await _typeFineRepository.GetAsync(id);
+            return await _typeTypeFineRepository.Create(typeFine);
         }
 
-        public Task DeleteTypeFine(int id)
+        public async Task DeleteTypeFine(int id)
         {
-            return await _typeFineRepository.GetAsync(id);
+            await _typeTypeFineRepository.DeleteAsync(id);
         }
 
-        public Task<List<TypeFine>> GetAll()
+        public async Task<IEnumerable<TypeFine>> GetTypeFines()
         {
-            return await _typeFineRepository.GetAsync(id);
+            return await _typeTypeFineRepository.GetAll();
         }
 
-        public Task<TypeFine> GetTypeFineById(int id)
+        public async Task<TypeFine> GetTypeFineById(int id)
         {
-            return await _typeFineRepository.GetAsync(id);
+            return await _typeTypeFineRepository.GetAsync(id);
         }
 
-        public Task UpdateTypeFine(TypeFine typeFine)
+        public async Task<TypeFine> UpdateTypeFine(TypeFine typeFine)
         {
-            return await _typeFineRepository.GetAsync(id);
+            return await _typeTypeFineRepository.UpdateAsync(typeFine);
         }
     }
 }

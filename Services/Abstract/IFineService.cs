@@ -9,9 +9,9 @@ namespace FineAPI.Services.Abstract
     public interface IFineService
     {
         Task<Fine> GetFineById(int id);
-        Task<List<Fine>> GetAll();
-        Task<Fine> Create(Fine fine);
-        Task UpdateFine(Fine fine);
+        Task<IEnumerable<Fine>> GetFines();
+        Task<Fine> CreateFine(Fine fine);
+        Task<Fine> UpdateFine(Fine fine);
         Task DeleteFine(int id);
     }
 }

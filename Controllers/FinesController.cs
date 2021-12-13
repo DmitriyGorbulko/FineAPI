@@ -1,6 +1,5 @@
-﻿using AvtoAPI.Entities;
-using AvtoAPI.Repositories;
-using AvtoAPI.Services.Abstracts;
+﻿
+using FineAPI.Entities;
 using FineAPI.Services.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,9 +20,38 @@ namespace FineAPI.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> GetAvto([FromQuery] int id)
+        [Route(nameof(GetFine))]
+        public async Task<IActionResult> GetFine([FromQuery] int id)
         {
             return Ok(await _fineService.GetFineById(id));
+        }
+
+        [HttpGet]
+        [Route(nameof(GetFines))]
+        public async Task<IActionResult> GetFines()
+        {
+            return Ok(await _fineService.GetFines());
+        }
+
+        [HttpPost]
+        [Route(nameof(CreateFine))]
+        public async Task<IActionResult> CreateFine([FromQuery] Fine fine)
+        {
+            return Ok(await _fineService.CreateFine(fine));
+        }
+
+        [HttpDelete]
+        [Route(nameof(DeleteFine))]
+        public async Task DeleteFine([FromQuery] int id)
+        {
+            await _fineService.DeleteFine(id);
+        }
+
+        [HttpPut]
+        [Route(nameof(UpdateFine))]
+        public async Task UpdateFine([FromQuery] Fine fine)
+        {
+            Ok(await _fineService.UpdateFine(fine));
         }
     }
 }
