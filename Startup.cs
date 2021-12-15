@@ -37,6 +37,8 @@ namespace FineAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FineAPI", Version = "v1" });
             });
+            services.AddFineRepositoriesDI();
+            services.AddFineServicesDI();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

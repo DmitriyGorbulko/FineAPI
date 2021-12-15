@@ -1,6 +1,7 @@
 ﻿
 using FineAPI.Entities;
 using FineAPI.Services.Abstract;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace FineAPI.Controllers
 
         [HttpGet]
         [Route(nameof(GetFine))]
+        [ProducesResponseType(typeof(Fine), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetFine([FromQuery] int id)
         {
             return Ok(await _fineService.GetFineById(id));
@@ -28,6 +30,7 @@ namespace FineAPI.Controllers
 
         [HttpGet]
         [Route(nameof(GetFines))]
+        [ProducesResponseType(typeof(IEnumerable<Fine>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetFines()
         {
             return Ok(await _fineService.GetFines());
@@ -35,6 +38,7 @@ namespace FineAPI.Controllers
 
         [HttpPost]
         [Route(nameof(CreateFine))]
+        [ProducesResponseType(typeof(Fine), StatusCodes.Status200OK)]
         public async Task<IActionResult> CreateFine([FromQuery] Fine fine)
         {
             return Ok(await _fineService.CreateFine(fine));
@@ -49,6 +53,7 @@ namespace FineAPI.Controllers
 
         [HttpPut]
         [Route(nameof(UpdateFine))]
+        [ProducesResponseType(typeof(Fine), StatusCodes.Status200OK)]
         public async Task UpdateFine([FromQuery] Fine fine)
         {
             Ok(await _fineService.UpdateFine(fine));

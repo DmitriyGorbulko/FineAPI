@@ -12,11 +12,18 @@ namespace FineAPI
 {
     public static class FineDI
     {
-        public static IServiceCollection AddAvtoRepositoriesDI(this IServiceCollection services)
+        public static IServiceCollection AddFineRepositoriesDI(this IServiceCollection services)
         {
             return services
-                .AddScoped<IFineRepository, FineRepository>()
-                .AddScoped<ITypeFineRepository, TypeFineRepository>()
+                .AddTransient<IFineRepository, FineRepository>()
+                .AddTransient<ITypeFineRepository, TypeFineRepository>();
+        }
+
+        public static IServiceCollection AddFineServicesDI(this IServiceCollection services)
+        {
+            return services
+                .AddScoped<IFineService, FineService>()
+                .AddScoped<ITypeFineService, TypeFineService>()
                 .AddScoped<IEmailSendService, EmailSendService>();
         }
     }
