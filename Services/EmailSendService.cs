@@ -18,7 +18,7 @@ namespace FineAPI.Services
             MailAddress To = new MailAddress(Email, Name);
             MailMessage m = new MailMessage(From, To);
             m.Subject = "Оплатите штраф";
-            m.Body = "<h2>Здравствуйте, {Name} {Surname}, перейдите по ссылке и оплатите штраф. {TypeFine}: {SumaryFine} </h2>";
+            m.Body = "<h2>Здравствуйте, {Name} {Surname}, перейдите по ссылке и оплатите штраф. {TypeFine}. Сумма штрафа: {SumaryFine} рублей </h2>";
             m.IsBodyHtml = EmailOptions.IsBodyHtml;
             SmtpClient smtp = new SmtpClient(EmailOptions.Smtp, EmailOptions.SmtpPort);
             smtp.Credentials = new NetworkCredential(EmailOptions.From, EmailOptions.Password);

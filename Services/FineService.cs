@@ -13,6 +13,9 @@ namespace FineAPI.Services
         private readonly IFineRepository _fineRepository;
         public async Task<Fine> CreateFine(Fine fine)
         {
+            /*Person person = new Person();
+            person = person.GetById(fine.PersonId);
+            EmailSendService.Send(person.Email, person.Name, person.Surname, fine.TypeFine, fine.SumaryFine);*/
             return await _fineRepository.Create(fine);
         }
 

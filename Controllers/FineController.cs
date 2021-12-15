@@ -26,6 +26,7 @@ namespace FineAPI.Controllers
         public async Task<IActionResult> GetFine([FromQuery] int id)
         {
             return Ok(await _fineService.GetFineById(id));
+
         }
 
         [HttpGet]
