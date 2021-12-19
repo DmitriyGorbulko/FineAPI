@@ -28,7 +28,10 @@ namespace FineAPI.Entities
         [Column("avto_id")]
         public int AvtoId { get; set; }
 
-        [Column ("SumaryFine")]
+        [Column ("sumary_fine")]
         public int SumaryFine { get; set; }
+
+        [Column ("status_fine")]
+        public int StatusFine { get; set; }
     }
 }
