@@ -2,7 +2,7 @@
 
 namespace FineAPI.Migrations
 {
-    public partial class InitMigration : Migration
+    public partial class FineDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,10 +26,10 @@ namespace FineAPI.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     type_id = table.Column<int>(type: "int", nullable: false),
-                    amount = table.Column<int>(type: "int", nullable: false),
                     person_id = table.Column<int>(type: "int", nullable: false),
                     avto_id = table.Column<int>(type: "int", nullable: false),
-                    SumaryFine = table.Column<int>(type: "int", nullable: false)
+                    sumary_fine = table.Column<int>(type: "int", nullable: false),
+                    status_fine = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

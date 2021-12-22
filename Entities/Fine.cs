@@ -19,9 +19,6 @@ namespace FineAPI.Entities
         public int TypeFineId { get; set; }
         public virtual TypeFine TypeFine { get; set; }
 
-        [Column("amount")]
-        public int Amount { get; set; }
-
         [Column("person_id")]
         public int PersonId { get; set; }
 
@@ -32,6 +29,6 @@ namespace FineAPI.Entities
         public int SumaryFine { get; set; }
 
         [Column ("status_fine")]
-        public int StatusFine { get; set; }
+        public string StatusFine { get; set; }
     }
 }

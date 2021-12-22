@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FineAPI.Migrations
 {
     [DbContext(typeof(FineContext))]
-    [Migration("20211215144809_InitMigration")]
-    partial class InitMigration
+    [Migration("20211222172754_FineDatabase")]
+    partial class FineDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,10 +28,6 @@ namespace FineAPI.Migrations
                         .HasColumnName("id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Amount")
-                        .HasColumnType("int")
-                        .HasColumnName("amount");
-
                     b.Property<int>("AvtoId")
                         .HasColumnType("int")
                         .HasColumnName("avto_id");
@@ -40,9 +36,13 @@ namespace FineAPI.Migrations
                         .HasColumnType("int")
                         .HasColumnName("person_id");
 
+                    b.Property<string>("StatusFine")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("status_fine");
+
                     b.Property<int>("SumaryFine")
                         .HasColumnType("int")
-                        .HasColumnName("SumaryFine");
+                        .HasColumnName("sumary_fine");
 
                     b.Property<int>("TypeFineId")
                         .HasColumnType("int")
