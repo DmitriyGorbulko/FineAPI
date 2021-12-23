@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FineAPI.Repositories.Abstract
 {
-    interface IFineRepository : IRepositoryBase<Fine>
+    public interface IFineRepository : IRepositoryBase<Fine>
     {
 
     }

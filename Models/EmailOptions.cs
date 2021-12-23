@@ -9,7 +9,7 @@ namespace FineAPI.Models
     public class EmailOptions
     {
         public const string From = "gorbulkodi@gamail.com";
-        public const string Password = "";
+        public const string Password = "a65a68d01";
         public const bool IsEnableHtml = true; 
         public const string SmtpDomain = "...gmail.com";
         public const int SmtpPort= 557;

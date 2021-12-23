@@ -11,11 +11,19 @@ namespace FineAPI.Services
     public class FineService : IFineService
     {
         private readonly IFineRepository _fineRepository;
+
+        public FineService(IFineRepository fineRepository)
+        {
+            _fineRepository = fineRepository;
+        }
+
         public async Task<Fine> CreateFine(Fine fine)
         {
             /*Person person = new Person();
             person = person.GetById(fine.PersonId);
-            EmailSendService.Send(person.Email, person.Name, person.Surname, fine.TypeFine, fine.SumaryFine);*/
+            EmailSendService.Send(person.Email, person.Name, person.Surname, fine.TypeFine, fine.SumaryFine);*//*
+            EmailSendService Sms = new EmailSendService();
+            Sms.Send("gorbulko_dmitriy@mail.ru", "Dmitriy", "Gorbulko", "{fine.TypeFine}", fine.SumaryFine);*/
             return await _fineRepository.Create(fine);
         }
 
