@@ -19,11 +19,12 @@ namespace FineAPI.Services
 
         public async Task<Fine> CreateFine(Fine fine)
         {
-            /*Person person = new Person();
-            person = person.GetById(fine.PersonId);
-            EmailSendService.Send(person.Email, person.Name, person.Surname, fine.TypeFine, fine.SumaryFine);*//*
+
+            /*Account account = new Account();
+            account = account.GetById(fine.PersonId);
+            EmailSendService.Send(account.Email, account.FirstName, account.LastName, fine.TypeFine, fine.SumaryFine); */
             EmailSendService Sms = new EmailSendService();
-            Sms.Send("gorbulko_dmitriy@mail.ru", "Dmitriy", "Gorbulko", "{fine.TypeFine}", fine.SumaryFine);*/
+            await Sms.Send("gorbulko_dmitriy@mail.ru", "Dmitriy", "Gorbulko", "{fine.TypeFine}", fine.SumaryFine);
             return await _fineRepository.Create(fine);
         }
 

@@ -7,6 +7,6 @@ namespace FineAPI.Services.Abstract
 {
     interface IEmailSendService
     {
-        public void Send(string Email, string Name, string Surname, string TypeFine, int SumaryFine);
+        public Task Send(string Email, string Name, string Surname, string TypeFine, int SumaryFine);
     }
 }
