@@ -16,6 +16,7 @@ namespace FineAPI.Entities
 
         [Column("type_id")]
         [ForeignKey(nameof(TypeFine))]
+        [Required]
         public int TypeFineId { get; set; }
         public virtual TypeFine TypeFine { get; set; }
 
@@ -26,6 +27,7 @@ namespace FineAPI.Entities
         public int AvtoId { get; set; }
 
         [Column ("sumary_fine")]
+        [Required]
         public int SumaryFine { get; set; }
 
         [Column ("status_fine")]

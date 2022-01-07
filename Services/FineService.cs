@@ -12,11 +12,13 @@ namespace FineAPI.Services
     {
         private readonly IFineRepository _fineRepository;
         private readonly ITypeFineRepository _typeFineRepository;
+        /*private readonly AccountService _accountService;*/
 
-        public FineService(IFineRepository fineRepository, ITypeFineRepository typeFineRepository)
+        public FineService(IFineRepository fineRepository, ITypeFineRepository typeFineRepository/*, AccountService accountService*/)
         {
             _fineRepository = fineRepository;
             _typeFineRepository = typeFineRepository;
+           /* _accountService] = accountService;*/
         }
 
         public async Task<Fine> CreateFine(Fine fine)
@@ -24,13 +26,20 @@ namespace FineAPI.Services
             /*Account account = new Account();
             account = account.GetById(fine.PersonId);
             EmailSendService.Send(account.Email, account.FirstName, account.LastName, fine.TypeFine, fine.SumaryFine); */
+            /*var person = await _accountService.GetById(fine.PersonId);
+            if (person == null)
+            {
+                throw new NullReferenceException(nameof(person));
+            }*/
 
-            var typeFine =await _typeFineRepository.GetAsync(fine.TypeFineId);
+            var typeFine = await _typeFineRepository.GetAsync(fine.TypeFineId);
             if (typeFine == null) 
             {
                 throw new NullReferenceException(nameof(typeFine));
             }
             EmailSendService Sms = new EmailSendService();
+            /*await Sms.Send($"{Account.Email}", $"{Account.FirstName}", $"{Account.LastName}", $"{typeFine.Name}", fine.SumaryFine);*/
+
             await Sms.Send("gorbulko_dmitriy@mail.ru", "Dmitriy", "Gorbulko", $"{typeFine.Name}", fine.SumaryFine);
             return await _fineRepository.Create(fine);
         }
