@@ -9,6 +9,7 @@ namespace FineAPI.Repositories.Abstract
 {
     public interface IFineRepository : IRepositoryBase<Fine>
     {
-
+        Task<IEnumerable<Fine>> GetFineByPersonId(int id);
+        Task<IEnumerable<Fine>> GetFineByAvtoId(int id);
     }
 }

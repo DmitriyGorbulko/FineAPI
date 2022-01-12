@@ -63,5 +63,14 @@ namespace FineAPI.Services
         {
             return await _fineRepository.UpdateAsync(fine);
         }
+
+        public async Task<IEnumerable<Fine>> GetFineByPersonId(int id)
+        {
+            return await _fineRepository.GetFineByPersonId(id);
+        }
+        public async Task<IEnumerable<Fine>> GetFineByAvtoId(int id)
+        {
+            return await _fineRepository.GetFineByAvtoId(id);
+        }
     }
 }

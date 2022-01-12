@@ -64,5 +64,19 @@ namespace FineAPI.Controllers
         {
             Ok(await _fineService.UpdateFine(fine));
         }
+
+        [HttpGet]
+        [Route(nameof(GetFineByPersonId))]
+        public async Task<ActionResult> GetFineByPersonId([FromQuery] int id)
+        {
+            return Ok(await _fineService.GetFineByPersonId(id));
+        }
+
+        [HttpGet]
+        [Route(nameof(GetFineByAvtoId))]
+        public async Task<ActionResult> GetFineByAvtoId([FromQuery] int id)
+        {
+            return Ok(await _fineService.GetFineByAvtoId(id));
+        }
     }
 }

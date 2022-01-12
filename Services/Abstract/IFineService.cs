@@ -13,5 +13,7 @@ namespace FineAPI.Services.Abstract
         Task<Fine> CreateFine(Fine fine);
         Task<Fine> UpdateFine(Fine fine);
         Task DeleteFine(int id);
+        Task<IEnumerable<Fine>> GetFineByPersonId(int id);
+        Task<IEnumerable<Fine>> GetFineByAvtoId(int id);
     }
 }
